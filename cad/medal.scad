@@ -1,13 +1,13 @@
-scale_factor = (100/50);
+scale_factor = (75/50);
 image_radius=26;
 margin=2;
 logo_height=1;
 medal_height=2;
-tsize=2.5;
+tsize=6;
 translate_param = 2*0.72*tsize;
 text_depth=medal_height*0.25;
-ribbon_width=(image_radius+margin)*0.5;
-ribbon_height=(image_radius+margin)*0.15;
+ribbon_width=(image_radius+margin)*0.5*2;
+ribbon_height=(image_radius+margin)*0.35;
 
 //current_color="medal";
 //current_color="logo";
@@ -31,11 +31,11 @@ module medal_base(){
 }
 
 module text_full() {
-    translate([0,0,text_depth]) scale([-1,1,-1]) linear_extrude(height=medal_depth,scale=1){
-translate([0,-0.5*translate_param,0]){
-   translate([0,translate_param,0])player_text("UTSmash Back to School Brawl");player_text("Ultimaate Singles 1st Place");
-translate([0,-translate_param,0]) player_text("August 31st 2024");
-}
+    translate([0,0,text_depth]) scale([-1,1,1]) linear_extrude(height=0.125*medal_depth,scale=1, center=true){
+   translate([0,translate_param,0])player_text("UofT BTSB");
+    player_text("Singles");
+translate([0,-translate_param,0]) player_text("2nd Place");
+    translate([0,-2*translate_param,0]) player_text("31/08/2024");
 }
 }
 
